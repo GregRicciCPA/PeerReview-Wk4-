@@ -20,14 +20,14 @@ subject_train <- read.table("./subject_train.txt", header=FALSE, col.names = "su
 x_train <- read.table("./X_train.txt", header=FALSE, col.names = features$functions)
 y_train <- read.table("./y_train.txt", header=FALSE, col.names = "code")
 
-# Merge the datasets into a single dataframe called testdf
-# Combine testdf and traindf into running_data
+# Merge the datasets into a single dataframe 
+# Combine testdf and traindf
 X <- rbind(x_train, x_test)
 Y <- rbind(y_train, y_test)
 Subject <- rbind(subject_train, subject_test)
 Merged_Data <- cbind(Subject, Y, X)
 
-# Apply the measurement labels as column names running_data
+# Apply the measurement labels as column names 
 TidyData <- Merged_Data %>% select(subject, code, contains("mean"), contains("std"))
 
 # create column names
